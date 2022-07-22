@@ -57,7 +57,8 @@ typings/
 # gatsby files
 .cache/
 public
-
+functions
+.netlify
 # Mac files
 .DS_Store
 
