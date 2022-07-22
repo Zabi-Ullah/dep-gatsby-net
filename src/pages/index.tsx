@@ -1,6 +1,11 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Layout from "../components/layout"
 
 export default function Home() {
-  return <Layout>Hello world! </Layout>
+  
+  return(
+    <Layout>
+
+    </Layout>
+  )
 }
