@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import { useQuery, useMutation } from '@apollo/client';
 import gql from 'graphql-tag'
 const GETTODO=gql`
   {
     todos{
-      id,
-      task,
+      id
+      task
       status
     }
   }
@@ -34,7 +34,9 @@ export default function Home() {
   if(loading){
     return(
       <Layout>
+        <div className="container">
         <h1>loading...</h1>
+        </div>
       </Layout>
     )
   }
@@ -42,32 +44,34 @@ export default function Home() {
     console.log(error)
     return(
       <Layout>
-        <h1>Error</h1>
+        <div className="container">
+        <h1 >Error</h1>
+        </div>
       </Layout>
     )
   }
   return(
     <Layout>
+      <div className="container">
       <h1>Add Todo</h1>
       <input type="text" ref={e=>{
         input=e
       }} />
       <button onClick={()=>addtask()}>Submit</button><br /><br />
       <h1>My Todo List</h1>
-      <table border={2} width="700" >
+      <table border={2} width="500" >
         <tr>
-          <th>ID</th>
           <th>Task</th>
           <th>Status</th>
         </tr>
         {data.todos.map(d=>(
           <tr>
-            <td>{d.id}</td>
             <td>{d.task}</td>
             <td>{d.status.toString()}</td>
           </tr>
         ))}
       </table>
+      </div>
     </Layout>
   )
 }
